@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<title>{%=o.title%}</title>
+
+<h3>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <a href="{%=o.url%}">{%=o.title%}</a>
+</h3>
+<h4>Features</h4>
+<ul>
+    {% for (var i=0; i
+    <o.features.length; i++) { %} <li>{%=o.features[i]%}</li>
+        {% } %}
+</ul>
+<div>
+    <button type="submit" class="a_click">A send</button>
+    <button type="submit" class="red_click">Red send</button>
+    <button type="submit" class="blue_click">Blue send</button>
+    <button type="submit" class="yellow_click">Yellow send</button>
+</div>
+<div id="content_chat">
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io('http://localhost:3000');
+
+    var a_button = document.querySelector('.a_click');
+    var red_click = document.querySelector('.red_click');
+    var blue_click = document.querySelector('.blue_click');
+    var yellow_click = document.querySelector('.yellow_click');
+    var content_chat = document.querySelector('#content_chat');
+    var body = document.querySelector('body');
+
+    a_button.onclick = function () {
+        socket.emit('Send data to server', { sms: 'Hello u!' });
+    };
+
+    socket.on('Send data to client', function (data) {
+        console.log('Mess from SERVER:', data);
+        var node_p = document.createElement('p');
+        node_p.innerText = data.userid + ': ' + data.sms;
+        console.log(node_p);
+        content_chat.appendChild(node_p);
+    });
+
+    red_click.onclick = function () {
+        socket.emit('Send background to server', { sms: 'red' });
+    };
+    blue_click.onclick = function () {
+        socket.emit('Send background to server', { sms: 'blue' });
+    };
+    yellow_click.onclick = function () {
+        socket.emit('Send background to server', { sms: 'yellow' });
+    };
+
+    socket.on('Send background to client', function (data) {
+        body.style.background = data.background;
+    });
+
+</script>
