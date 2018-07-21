@@ -1,0 +1,34 @@
+h2 {
+  text-align: center;
+}
+.register,
+.chat {
+  border: 2px dashed grey;
+  margin: 20px;
+  padding: 10px;
+  background: rosybrown;
+}
+.hide {
+  display: none !important;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.list-user {
+  width: 40%;
+}
+.wrapper-user {
+  width: 60%;
+}
+.chat {
+  display: flex;
+}
+.content-list-chat {
+  min-height: 40px;
+  margin-top: 10px;
+  background: blueviolet;
+  border: 1px solid antiquewhite;
+}

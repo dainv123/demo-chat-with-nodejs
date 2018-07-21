@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main.css" />
+
+</head>
+
+<body>
+    <h2>Demo socket.io</h2>
+    <div class="wrapper">
+        <div class="register">
+            <input type="text">
+            <button>Register</button>
+        </div>
+        <div class="chat">
+            <div class="list-user left">
+                <h3>List user online</h3>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="wrapper-user right">
+                <div class="info-user">
+                    <h3>Hi,
+                        <span>Teo</span>
+                    </h3>
+                    <button>Logout</button>
+                </div>
+                <div class="sms-user">
+                    <input type="text">
+                    <button>Send</button>
+                </div>
+                <div class="content-list-chat">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets/js/chat.js"></script>
+</body>
+
+</html>
